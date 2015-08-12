@@ -1,0 +1,56 @@
+kunkua/
+sample/flappybun/
+test/android/bin/
+test/android/gen/
+test/android/libs/
+test/android/obj/
+test/android/.classpath
+test/android/project.properties
+
+*~
+*.pdf
+*backup
+
+flakor.config
+flakor.creator
+flakor.files
+flakor.includes
+tags
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+
+# Compiled Dynamic libraries
+#*.so
+#*.dylib
+
+# Compiled Static libraries
+#*.lai
+#*.la
+#*.a
+
+# Packages #  
+############  
+# it's better to unpack these files and commit the raw source  
+# git has its own built in compression methods  
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# OS generated files #  
+######################  
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db

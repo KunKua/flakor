@@ -1,0 +1,421 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8509E9081A7252AE00F66057 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8509E9071A7252AE00F66057 /* main.m */; };
+		8509E90B1A7252AE00F66057 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8509E90A1A7252AE00F66057 /* AppDelegate.mm */; };
+		8509E9121A7252AE00F66057 /* GameViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8509E9111A7252AE00F66057 /* GameViewController.mm */; };
+		8509E9171A7252AE00F66057 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8509E9161A7252AE00F66057 /* Images.xcassets */; };
+		8509E91A1A7252AE00F66057 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8509E9181A7252AE00F66057 /* LaunchScreen.xib */; };
+		852D70EB1ACC2BE600198963 /* bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 852D70EA1ACC2BE600198963 /* bgm.mp3 */; };
+		852D70F71ACC2EAC00198963 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 852D70EC1ACC2C7400198963 /* OpenAL.framework */; };
+		852D70F91ACC2EBE00198963 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 852D70F81ACC2EBE00198963 /* AudioToolbox.framework */; };
+		852D70FA1ACC2ECC00198963 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 852D70EE1ACC2C7C00198963 /* AVFoundation.framework */; };
+		859BE3611ABB0A95000B15C4 /* libflakor_lib_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 85FD97511A761013000039CF /* libflakor_lib_ios.a */; };
+		85A7D56E1AC6854B009D1EE9 /* flakor_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 85A7D56D1AC6854B009D1EE9 /* flakor_test.png */; };
+		85C24DDC1AC648D100E58809 /* flakor_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 85C24DDB1AC648D100E58809 /* flakor_logo.png */; };
+		85C24DE21AC648FA00E58809 /* MainGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85C24DDE1AC648FA00E58809 /* MainGame.cpp */; };
+		85C24DE31AC648FA00E58809 /* TestScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85C24DE01AC648FA00E58809 /* TestScene.cpp */; };
+		85C24DEF1AC64DAA00E58809 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 85C24DEE1AC64DAA00E58809 /* libz.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8570FEA31AB949BB003DF0D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 859BAC8D1A733A8100E57FFF /* flakor_lib.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 859BAC691A733A0600E57FFF;
+			remoteInfo = flakor_lib_ios;
+		};
+		85FD97501A761013000039CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 859BAC8D1A733A8100E57FFF /* flakor_lib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 859BAFF41A733E3C00E57FFF;
+			remoteInfo = flakor_lib_ios;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8509E9021A7252AE00F66057 /* ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8509E9061A7252AE00F66057 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8509E9071A7252AE00F66057 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8509E9091A7252AE00F66057 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		8509E90A1A7252AE00F66057 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
+		8509E9101A7252AE00F66057 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		8509E9111A7252AE00F66057 /* GameViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = GameViewController.mm; sourceTree = "<group>"; };
+		8509E9161A7252AE00F66057 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8509E9191A7252AE00F66057 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		852D70EA1ACC2BE600198963 /* bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm.mp3; sourceTree = "<group>"; };
+		852D70EC1ACC2C7400198963 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		852D70EE1ACC2C7C00198963 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		852D70F81ACC2EBE00198963 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		859BAC8D1A733A8100E57FFF /* flakor_lib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = flakor_lib.xcodeproj; path = ../../build/flakor_lib.xcodeproj; sourceTree = SOURCE_ROOT; };
+		85A7D56D1AC6854B009D1EE9 /* flakor_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = flakor_test.png; path = ../../android/assets/flakor_test.png; sourceTree = "<group>"; };
+		85C24DDB1AC648D100E58809 /* flakor_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flakor_logo.png; sourceTree = "<group>"; };
+		85C24DDE1AC648FA00E58809 /* MainGame.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = MainGame.cpp; sourceTree = "<group>"; };
+		85C24DDF1AC648FA00E58809 /* MainGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainGame.h; sourceTree = "<group>"; };
+		85C24DE01AC648FA00E58809 /* TestScene.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = TestScene.cpp; sourceTree = "<group>"; };
+		85C24DE11AC648FA00E58809 /* TestScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestScene.h; sourceTree = "<group>"; };
+		85C24DEE1AC64DAA00E58809 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8509E8FF1A7252AE00F66057 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				852D70FA1ACC2ECC00198963 /* AVFoundation.framework in Frameworks */,
+				852D70F91ACC2EBE00198963 /* AudioToolbox.framework in Frameworks */,
+				852D70F71ACC2EAC00198963 /* OpenAL.framework in Frameworks */,
+				85C24DEF1AC64DAA00E58809 /* libz.dylib in Frameworks */,
+				859BE3611ABB0A95000B15C4 /* libflakor_lib_ios.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8509E8F91A7252AE00F66057 = {
+			isa = PBXGroup;
+			children = (
+				859BAC8D1A733A8100E57FFF /* flakor_lib.xcodeproj */,
+				852D70FB1ACC303600198963 /* Framework */,
+				8509E9041A7252AE00F66057 /* ios */,
+				8509E9031A7252AE00F66057 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8509E9031A7252AE00F66057 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8509E9021A7252AE00F66057 /* ios.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8509E9041A7252AE00F66057 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				852D70EA1ACC2BE600198963 /* bgm.mp3 */,
+				85A7D56D1AC6854B009D1EE9 /* flakor_test.png */,
+				85C24DDD1AC648FA00E58809 /* classes */,
+				85C24DDB1AC648D100E58809 /* flakor_logo.png */,
+				8509E9091A7252AE00F66057 /* AppDelegate.h */,
+				8509E90A1A7252AE00F66057 /* AppDelegate.mm */,
+				8509E9101A7252AE00F66057 /* GameViewController.h */,
+				8509E9111A7252AE00F66057 /* GameViewController.mm */,
+				8509E9161A7252AE00F66057 /* Images.xcassets */,
+				8509E9181A7252AE00F66057 /* LaunchScreen.xib */,
+				8509E9051A7252AE00F66057 /* Supporting Files */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
+		8509E9051A7252AE00F66057 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8509E9061A7252AE00F66057 /* Info.plist */,
+				8509E9071A7252AE00F66057 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		852D70FB1ACC303600198963 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				85C24DEE1AC64DAA00E58809 /* libz.dylib */,
+				852D70F81ACC2EBE00198963 /* AudioToolbox.framework */,
+				852D70EE1ACC2C7C00198963 /* AVFoundation.framework */,
+				852D70EC1ACC2C7400198963 /* OpenAL.framework */,
+			);
+			name = Framework;
+			sourceTree = "<group>";
+		};
+		85C24DDD1AC648FA00E58809 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				85C24DDE1AC648FA00E58809 /* MainGame.cpp */,
+				85C24DDF1AC648FA00E58809 /* MainGame.h */,
+				85C24DE01AC648FA00E58809 /* TestScene.cpp */,
+				85C24DE11AC648FA00E58809 /* TestScene.h */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
+		85FD974D1A761013000039CF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				85FD97511A761013000039CF /* libflakor_lib_ios.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8509E9011A7252AE00F66057 /* ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8509E9291A7252AE00F66057 /* Build configuration list for PBXNativeTarget "ios" */;
+			buildPhases = (
+				8509E8FE1A7252AE00F66057 /* Sources */,
+				8509E8FF1A7252AE00F66057 /* Frameworks */,
+				8509E9001A7252AE00F66057 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8570FEA41AB949BB003DF0D2 /* PBXTargetDependency */,
+			);
+			name = ios;
+			productName = ios;
+			productReference = 8509E9021A7252AE00F66057 /* ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8509E8FA1A7252AE00F66057 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Saint Hsu";
+				TargetAttributes = {
+					8509E9011A7252AE00F66057 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+				};
+			};
+			buildConfigurationList = 8509E8FD1A7252AE00F66057 /* Build configuration list for PBXProject "ios" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8509E8F91A7252AE00F66057;
+			productRefGroup = 8509E9031A7252AE00F66057 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 85FD974D1A761013000039CF /* Products */;
+					ProjectRef = 859BAC8D1A733A8100E57FFF /* flakor_lib.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				8509E9011A7252AE00F66057 /* ios */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		85FD97511A761013000039CF /* libflakor_lib_ios.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libflakor_lib_ios.a;
+			remoteRef = 85FD97501A761013000039CF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8509E9001A7252AE00F66057 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85A7D56E1AC6854B009D1EE9 /* flakor_test.png in Resources */,
+				85C24DDC1AC648D100E58809 /* flakor_logo.png in Resources */,
+				8509E91A1A7252AE00F66057 /* LaunchScreen.xib in Resources */,
+				8509E9171A7252AE00F66057 /* Images.xcassets in Resources */,
+				852D70EB1ACC2BE600198963 /* bgm.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8509E8FE1A7252AE00F66057 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85C24DE21AC648FA00E58809 /* MainGame.cpp in Sources */,
+				8509E90B1A7252AE00F66057 /* AppDelegate.mm in Sources */,
+				85C24DE31AC648FA00E58809 /* TestScene.cpp in Sources */,
+				8509E9121A7252AE00F66057 /* GameViewController.mm in Sources */,
+				8509E9081A7252AE00F66057 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8570FEA41AB949BB003DF0D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = flakor_lib_ios;
+			targetProxy = 8570FEA31AB949BB003DF0D2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8509E9181A7252AE00F66057 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8509E9191A7252AE00F66057 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8509E9271A7252AE00F66057 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8509E9281A7252AE00F66057 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8509E92A1A7252AE00F66057 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					FK_TARGET_OS_IPHONE,
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
+				INFOPLIST_FILE = ios/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../../flakor $(PROJECT_DIR)/../../flakor/include";
+			};
+			name = Debug;
+		};
+		8509E92B1A7252AE00F66057 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = FK_TARGET_OS_IPHONE;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
+				INFOPLIST_FILE = ios/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../../flakor $(PROJECT_DIR)/../../flakor/include";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8509E8FD1A7252AE00F66057 /* Build configuration list for PBXProject "ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8509E9271A7252AE00F66057 /* Debug */,
+				8509E9281A7252AE00F66057 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8509E9291A7252AE00F66057 /* Build configuration list for PBXNativeTarget "ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8509E92A1A7252AE00F66057 /* Debug */,
+				8509E92B1A7252AE00F66057 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8509E8FA1A7252AE00F66057 /* Project object */;
+}
