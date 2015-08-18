@@ -1,5 +1,7 @@
 /***************************************************************************
- * Copyright (c) 2013-2015 Steve Hsu All Rights Reserved.
+ * Copyright (c) 2013-2015 Flakor.org All Rights Reserved.
+ * Author: Steve Hsu (saint@aliyun.com)
+ * last edited: 2015-8-18
 ***************************************************************************/
 
 #ifndef FK_PLATFORM_PLATFORM_H
