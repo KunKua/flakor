@@ -1,8 +1,13 @@
-#ifndef _FK_TARGET_MACROS_H_
-#define _FK_TARGET_MACROS_H_
+/***************************************************************************
+ * Copyright (c) 2013-2015 Flakor.org All Rights Reserved.
+ * Author: Steve Hsu (steve@kunkua.com,saint@aliyun.com)
+ * last edited: 2015-8-18
+ ***************************************************************************/
 
-#include "targetAssert.h"
-#define FLAKOR_DEBUG 1
+#ifndef FK_PLATFORM_PLATFORMMACROS_H
+#define FK_PLATFORM_PLATFORMMACROS_H
+
+#include "platform/Platform.h"
 
 // namespace define flakor {}
 #ifdef __cplusplus

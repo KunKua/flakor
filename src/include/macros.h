@@ -1,29 +1,11 @@
-/****************************************************************************
-Copyright (c) 2013  flakor
+/***************************************************************************
+ * Copyright (c) 2013-2015 Flakor.org All Rights Reserved.
+ * Author: Steve Hsu (steve@kunkua.com,saint@aliyun.com)
+ * last edited: 2015-8-18
+ ***************************************************************************/
 
-http://www.flakor.org
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-****************************************************************************/
-
-#ifndef _FK_MACROS_H_
-#define _FK_MACROS_H_
+#ifndef FK_MACROS_H
+#define FK_MACROS_H
 
 #ifndef _USE_MATH_DEFINES
 #define _USE_MATH_DEFINES
@@ -87,41 +69,11 @@ default gl blend src function. Compatible with premultiplied alpha images.
 #define FK_BLEND_SRC GL_ONE
 #define FK_BLEND_DST GL_ONE_MINUS_SRC_ALPHA
 
-
-/** @def FK_NODE_DRAW_SETUP
- Helpful macro that setups the GL server state, the correct GL program and sets the Model View Projection matrix
- @since v2.0
- */
-#define CC_NODE_DRAW_SETUP() \
-do { \
-    ccGLEnable(m_eGLServerState); \
-    FKAssert(getShaderProgram(), "No shader program set for this node"); \
-    { \
-        getShaderProgram()->use(); \
-        getShaderProgram()->setUniformsForBuiltins(); \
-    } \
-} while(0)
-
-
- /** @def CC_DIRECTOR_END
-  Stops and removes the director from memory.
-  Removes the CCGLView from its parent
-
-  @since v0.99.4
-  */
-#define CC_DIRECTOR_END()                                        \
-do {                                                            \
-    CCDirector *__director = CCDirector::sharedDirector();        \
-    __director->end();                                            \
-} while(0)
-
 /** @def FK_CONTENT_SCALE_FACTOR
 On Mac it returns 1;
 On iPhone it returns 2 if RetinaDisplay is On. Otherwise it returns 1
 */
-#define FK_CONTENT_SCALE_FACTOR() 1 
-
-//CCDirector::sharedDirector()->getContentScaleFactor()
+#define FK_CONTENT_SCALE_FACTOR() 1
 
 /****************************/
 /** RETINA DISPLAY ENABLED **/
@@ -141,16 +93,16 @@ On iPhone it returns 2 if RetinaDisplay is On. Otherwise it returns 1
     RectMake( (__rect_in_points_points__).origin.x * FK_CONTENT_SCALE_FACTOR(), (__rect_in_points_points__).origin.y * FK_CONTENT_SCALE_FACTOR(),    \
             (__rect_in_points_points__).size.width * FK_CONTENT_SCALE_FACTOR(), (__rect_in_points_points__).size.height * FK_CONTENT_SCALE_FACTOR() )
 
-/** @def CC_POINT_PIXELS_TO_POINTS
+/** @def FK_POINT_PIXELS_TO_POINTS
  Converts a rect in pixels to points
  */
-#define CC_POINT_PIXELS_TO_POINTS(__pixels__)                                                                        \
-CCPointMake( (__pixels__).x / CC_CONTENT_SCALE_FACTOR(), (__pixels__).y / CC_CONTENT_SCALE_FACTOR())
+#define FK_POINT_PIXELS_TO_POINTS(__pixels__)                                                                        \
+ PointMake( (__pixels__).x / CC_CONTENT_SCALE_FACTOR(), (__pixels__).y / CC_CONTENT_SCALE_FACTOR())
 
-/** @def CC_POINT_POINTS_TO_PIXELS
+/** @def FK_POINT_POINTS_TO_PIXELS
  Converts a rect in points to pixels
  */
-#define CC_POINT_POINTS_TO_PIXELS(__points__)                                                                        \
+#define FK_POINT_POINTS_TO_PIXELS(__points__)                                                                        \
 CCPointMake( (__points__).x * CC_CONTENT_SCALE_FACTOR(), (__points__).y * CC_CONTENT_SCALE_FACTOR())
 
 /** @def CC_POINT_PIXELS_TO_POINTS

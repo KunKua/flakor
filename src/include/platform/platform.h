@@ -1,6 +1,6 @@
 /***************************************************************************
  * Copyright (c) 2013-2015 Flakor.org All Rights Reserved.
- * Author: Steve Hsu (saint@aliyun.com)
+ * Author: Steve Hsu (steve@kunkua.com,saint@aliyun.com)
  * last edited: 2015-8-18
 ***************************************************************************/
 
