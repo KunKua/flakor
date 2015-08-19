@@ -1,7 +1,7 @@
 /***************************************************************************
  * Copyright (c) 2013-2015 Flakor.org All Rights Reserved.
  * Author: Steve Hsu (steve@kunkua.com,saint@aliyun.com)
- * last edited: 2015-8-18
+ * last edited: 2015-8-19
 ***************************************************************************/
 
 #ifndef FK_PLATFORM_PLATFORM_H
@@ -44,8 +44,8 @@ Config of flakor project, define which target platform to be run in.
 #define FK_TARGET_PLATFORM         FK_PLATFORM_MAC
 #endif
 
-// iphone
-#if defined(FK_TARGET_OS_IPHONE) || defined(TARGET_OS_IPHONE)
+// iOS
+#if defined(FK_TARGET_OS_IOS) || defined(FK_TARGET_OS_IPHONE) || defined()
     #undef  FK_TARGET_PLATFORM
     #define FK_TARGET_PLATFORM         FK_PLATFORM_IOS
 #endif
@@ -135,11 +135,25 @@ Config of flakor project, define which target platform to be run in.
   #pragma warning (disable:4127)
 #endif  // FK_PLATFORM_WIN32
 
+//Compile Define
 #if (FK_TARGET_PLATFORM == FK_PLATFORM_ANDROID)
-	#include "android/AndroidAssert.h"
-#elif  (FK_TARGET_PLATFORM == FK_PLATFORM_IPHONE)
-	#include "ios/IOSAssert.h"
+	#include "platform/android/AndroidCompilerPreSetup.h"
+#elif  (FK_TARGET_PLATFORM == FK_PLATFORM_IOS)
+	#include "platform/ios/IOSCompilerPreSetup.h"
 #endif
+
+#include "platform/PlatformComilerPreSetup.h"
+
+//Log Define includes assert and printf
+#if (FK_TARGET_PLATFORM == FK_PLATFORM_ANDROID)
+	#include "platform/android/AndroidLog.h"
+#elif  (FK_TARGET_PLATFORM == FK_PLATFORM_IOS)
+	#include "platform/ios/IOSLog.h"
+#endif
+
+#include "platform/PlatformLog.h"
+
+#include "platform/PlatMacros.h"
 
 #endif
 

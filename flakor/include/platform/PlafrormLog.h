@@ -4,8 +4,8 @@
  * last edited: 2015-8-18
  ***************************************************************************/
 
-#ifndef FK_COMMON_H
-#define FK_COMMON_H
+#ifndef FK_PLATFORM_PLATFORMLOG_H
+#define FK_PLATFORM_PLATFORMLOG_H
 
 #include "platform/Platform/PlatformMacros.h"
 
@@ -30,39 +30,13 @@ void FK_DLL Log(const char * pszFormat, ...) FK_FORMAT_PRINTF(1, 2);
 void FK_DLL LuaLog(const char * pszFormat);
 
 /**
- * KunKua log
+@brief KunKua log
  */
-
 void FK_DLL KKLog(const char * pszFormat);
-
-/**
-@brief Pop out a message box
-*/
-void FK_DLL MessageBox(const char * pszMsg, const char * pszTitle);
-
-/**
-@brief Enum the language type supported now
-*/
-typedef enum __LanguageType
-{
-	LanguageChinese = 0,
-    LanguageEnglish,
-    LanguageFrench,
-    LanguageItalian,
-    LanguageGerman,
-    LanguageSpanish,
-    LanguageDutch,
-    LanguageRussian,
-    LanguageKorean,
-    LanguageJapanese,
-    LanguageHungarian,
-    LanguagePortuguese,
-    LanguageArabic
-} LanguageType;
 
 // end of platform group
 /// @}
 
 FLAKOR_NS_END
 
-#endif    // _FK_COMMON_H_
+#endif    // FK_PLATFORM_PLATFORMLOG_H
