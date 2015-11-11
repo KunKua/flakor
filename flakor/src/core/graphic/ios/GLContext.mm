@@ -116,6 +116,17 @@ bool GLContext::checkExtension( const char* extension )
     }
 
     return false;
+
+	//opengl 3.0 check
+	// Create a set containing all extension names.
+    // (For better performance, create the set only once and cache it for future use.)
+    int max = 0;
+    glGetIntegerv(GL_NUM_EXTENSIONS, &max);
+    NSMutableSet *extensions = [NSMutableSet set];
+    for (int i = 0; i < max; i++) {
+        [extensions addObject: @( (char *)glGetStringi(GL_EXTENSIONS, i) )];
+    }
+    return [extensions containsObject: searchName];
 }
 
 FLAKOR_NS_END   //namespace flakor
