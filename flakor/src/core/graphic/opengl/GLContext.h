@@ -1,23 +1,14 @@
-/*
- * Copyright 2013-2015 Saint Hsu(saint@aliyun.com)
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+/***************************************************************************
+ * Copyright (c) 2013-2015 Flakor.org All Rights Reserved.
+ * Author: Steve Hsu (steve@kunkua.com,saint@aliyun.com)
+ * last edited: 2015-11-3
+ ***************************************************************************/
 
 //--------------------------------------------------------------------------------
 // GLContext.h
 //--------------------------------------------------------------------------------
-#ifndef _FK_GLCONTEXT_H_
-#define _FK_GLCONTEXT_H_
+#ifndef FK_CORE_GRAPHIC_OPENGL_GLCONTEXT_H
+#define FK_CORE_GRAPHIC_OPENGL_GLCONTEXT_H
 
 #include <EGL/egl.h>
 #include <GLES2/gl2.h>
@@ -60,20 +51,18 @@ private:
     EAGLView *glView;
     
     //Screen parameters
-    int32_t screen_width_;
-    int32_t screen_height_;
-    int32_t color_size_;
-    int32_t depth_size_;
+    int32_t _screenWidth;
+    int32_t _screenHeight;
+    int32_t _colorSize;
+    int32_t _depthSize;
 
     //Flags
-    bool gles_initialized_;
-    bool egl_context_initialized_;
-    bool es3_supported_;
-    float gl_version_;
-    bool context_valid_;
+    bool _initialized;
+    bool _es3Supported;
+    float _glVersion;
 
     void InitGLES();
-    void Terminate();
+    void terminate();
     bool InitEGLSurface();
     bool InitEGLContext();
 
@@ -86,11 +75,10 @@ public:
     {
         //Singleton
         static GLContext instance;
-
         return &instance;
     }
 
-    bool Init( ANativeWindow* window );
+    bool init( ANativeWindow* window );
     EGLint Resume( ANativeWindow* window );
     
     
@@ -99,31 +87,33 @@ public:
     void Suspend();
     
 
-    int32_t GetScreenWidth()
+    int32_t getScreenWidth()
     {
-        return screen_width_;
+        return _screenWidth;
     }
-    int32_t GetScreenHeight()
+    
+    int32_t getScreenHeight()
     {
-        return screen_height_;
+        return _screenHeight;
+    }
+    
+    int32_t getBufferColorSize()
+    {
+        return _colorSize;
+    }
+    
+    int32_t getBufferDepthSize()
+    {
+        return _depthSize;
+    }
+    
+    float getGLVersion()
+    {
+        return _glVersion;
     }
 
-    int32_t GetBufferColorSize()
-    {
-        return color_size_;
-    }
 
-    int32_t GetBufferDepthSize()
-    {
-        return depth_size_;
-    }
-
-    float GetGLVersion()
-    {
-        return gl_version_;
-    }
-
-    bool CheckExtension( const char* extension );
+    bool checkExtension( const char* extension );
 };
 
 FLAKOR_NS_END   //namespace flakor
