@@ -1,8 +1,5 @@
-// Copyright 1998-2015 Epic Games, Inc. All Rights Reserved.
-
-#pragma once
-
-#include "HAL/Platform.h"
+#ifndef MATH_COMPRESSION_H
+#define MATH_COMPRESSION_H
 
 /**
  * Flags controlling [de]compression
@@ -90,4 +87,5 @@ struct FCompression
 	CORE_API static bool UncompressMemory( ECompressionFlags Flags, void* UncompressedBuffer, int32 UncompressedSize, const void* CompressedBuffer, int32 CompressedSize, bool bIsSourcePadded = false );
 };
 
+#endif
 

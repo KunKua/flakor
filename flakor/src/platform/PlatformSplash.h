@@ -1,8 +1,5 @@
-// Copyright 1998-2015 Epic Games, Inc. All Rights Reserved.
-
-#pragma once
-
-#include "HAL/Platform.h"
+#ifndef PLATFORM_SPLASH_H
+#define PLATFORM_SPLASH_H
 
 
 /**
@@ -62,3 +59,6 @@ struct CORE_API FGenericPlatformSplash
 		return true;
 	}
 };
+
+
+#endif

@@ -1,6 +1,5 @@
-// Copyright 1998-2015 Epic Games, Inc. All Rights Reserved.
-
-#pragma once
+#ifndef RUNTIME_MATH_BYTESWAP_H
+#define RUNTIME_MATH_BYTESWAP_H
 
 
 // These macros are not safe to use unless data is UNSIGNED!
@@ -90,4 +89,6 @@ static FORCEINLINE void BYTESWAP_ORDER_TCHARARRAY (TCHAR* str)
 	#define INTEL_ORDERF(x)				BYTESWAP_ORDERF(x)
 	#define INTEL_ORDER64(x)			BYTESWAP_ORDER64(x)
 	#define INTEL_ORDER_TCHARARRAY(x)	BYTESWAP_ORDER_TCHARARRAY(x)
+#endif
+
 #endif
