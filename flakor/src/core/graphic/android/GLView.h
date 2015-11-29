@@ -45,53 +45,47 @@ private:
     bool _es3Supported;
     float _glVersion;
 
-    void InitGLES();
+    void initGLES();
     void terminate();
-    bool InitEGLSurface();
-    bool InitEGLContext();
+    bool initEGLSurface();
+    bool initEGLContext();
 
-    GLContext( GLContext const& );
-    void operator=( GLContext const& );
-    GLContext();
-    virtual ~GLContext();
+    GLView( GLView const& );
+    void operator=( GLView const& );
+    GLView();
+    virtual ~GLView();
 public:
-    static GLContext* GetInstance()
-    {
-        //Singleton
-        static GLContext instance;
-        return &instance;
-    }
 
     bool init( ANativeWindow* window );
-    EGLint Resume( ANativeWindow* window );
+    EGLint resume( ANativeWindow* window );
     
     
-    EGLint Swap();
-    bool Invalidate();
-    void Suspend();
+    EGLint swap();
+    bool invalidate();
+    void suspend();
     
 
-    int32_t getScreenWidth()
+    inline int32_t getScreenWidth()
     {
         return _screenWidth;
     }
     
-    int32_t getScreenHeight()
+    inline int32_t getScreenHeight()
     {
         return _screenHeight;
     }
     
-    int32_t getBufferColorSize()
+    inline int32_t getBufferColorSize()
     {
         return _colorSize;
     }
     
-    int32_t getBufferDepthSize()
+    inline int32_t getBufferDepthSize()
     {
         return _depthSize;
     }
     
-    float getGLVersion()
+    inline float getGLVersion()
     {
         return _glVersion;
     }

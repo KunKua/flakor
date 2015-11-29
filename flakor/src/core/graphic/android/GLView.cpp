@@ -1,22 +1,4 @@
-/*
- * Copyright 2013 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 
-//--------------------------------------------------------------------------------
-// GLContext.cpp
-//--------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------
 // includes
 //--------------------------------------------------------------------------------
@@ -30,75 +12,50 @@
 FLAKOR_NS_BEGIN
 
 //--------------------------------------------------------------------------------
-// eGLContext
-//--------------------------------------------------------------------------------
-
-//--------------------------------------------------------------------------------
 // Ctor
 //--------------------------------------------------------------------------------
-GLContext::GLContext() :
-                display_( EGL_NO_DISPLAY ),
-                surface_( EGL_NO_SURFACE ),
-                context_( EGL_NO_CONTEXT ),
-                screen_width_( 0 ),
-                screen_height_( 0 ),
-                es3_supported_( false ),
-                egl_context_initialized_( false ),
-                gles_initialized_( false )
+GLView::GLView() :
+_display( EGL_NO_DISPLAY ),
+_surface( EGL_NO_SURFACE ),
+_context( EGL_NO_CONTEXT ),
+_screenWidth( 0 ),
+_screenHeight( 0 ),
+_es3Supported( false ),
+_eglContextInitialized( false ),
+_glesInitialized( false )
 {
-}
-
-void GLContext::InitGLES()
-{
-    if( gles_initialized_ )
-        return;
-    //
-    //Initialize OpenGL ES 3 if available
-    //
-    const char* versionStr = (const char*) glGetString( GL_VERSION );
-    if( strstr( versionStr, "OpenGL ES 3." ) && gl3stubInit() )
-    {
-        es3_supported_ = true;
-        gl_version_ = 3.0f;
-    }
-    else
-    {
-        gl_version_ = 2.0f;
-    }
-
-    gles_initialized_ = true;
 }
 
 //--------------------------------------------------------------------------------
 // Dtor
 //--------------------------------------------------------------------------------
-GLContext::~GLContext()
+GLView::~GLView()
 {
     Terminate();
 }
 
-bool GLContext::Init( ANativeWindow* window )
+bool GLView::init( ANativeWindow* window )
 {
-    if( egl_context_initialized_ )
+    if( _eglContextInitialized )
         return true;
 
     //
     //Initialize EGL
     //
-    window_ = window;
-    InitEGLSurface();
-    InitEGLContext();
-    InitGLES();
+    _window = window;
+    initEGLSurface();
+    initEGLContext();
+    initGLES();
 
-    egl_context_initialized_ = true;
+    _eglContextInitialized = true;
 
     return true;
 }
 
-bool GLContext::InitEGLSurface()
+bool GLView::initEGLSurface()
 {
-    display_ = eglGetDisplay( EGL_DEFAULT_DISPLAY );
-    eglInitialize( display_, 0, 0 );
+    _display = eglGetDisplay( EGL_DEFAULT_DISPLAY );
+    eglInitialize( _display, 0, 0 );
 
     /*
      * Here specify the attributes of the desired configuration.
@@ -107,13 +64,14 @@ bool GLContext::InitEGLSurface()
      */
     const EGLint attribs[] = { EGL_RENDERABLE_TYPE,
             EGL_OPENGL_ES2_BIT, //Request opengl ES2.0
-            EGL_SURFACE_TYPE, EGL_WINDOW_BIT, EGL_BLUE_SIZE, 8, EGL_GREEN_SIZE, 8,
+            EGL_SURFACE_TYPE, EGL_WINDOW_BIT,
+            EGL_BLUE_SIZE, 8, EGL_GREEN_SIZE, 8,
             EGL_RED_SIZE, 8, EGL_DEPTH_SIZE, 24, EGL_NONE };
-    color_size_ = 8;
-    depth_size_ = 24;
+    _colorSize = 8;
+    _depthSize = 24;
 
     EGLint num_configs;
-    eglChooseConfig( display_, attribs, &config_, 1, &num_configs );
+    eglChooseConfig( _display, attribs, &_config, 1, &num_configs );
 
     if( !num_configs )
     {
@@ -122,8 +80,8 @@ bool GLContext::InitEGLSurface()
                 EGL_OPENGL_ES2_BIT, //Request opengl ES2.0
                 EGL_SURFACE_TYPE, EGL_WINDOW_BIT, EGL_BLUE_SIZE, 8, EGL_GREEN_SIZE, 8,
                 EGL_RED_SIZE, 8, EGL_DEPTH_SIZE, 16, EGL_NONE };
-        eglChooseConfig( display_, attribs, &config_, 1, &num_configs );
-        depth_size_ = 16;
+        eglChooseConfig( _display, attribs, &_config, 1, &num_configs );
+        _depthSize = 16;
     }
 
     if( !num_configs )
@@ -132,38 +90,59 @@ bool GLContext::InitEGLSurface()
         return false;
     }
 
-    surface_ = eglCreateWindowSurface( display_, config_, window_, NULL );
-    eglQuerySurface( display_, surface_, EGL_WIDTH, &screen_width_ );
-    eglQuerySurface( display_, surface_, EGL_HEIGHT, &screen_height_ );
+    _surface = eglCreateWindowSurface( _display, _config, _window, NULL );
+    eglQuerySurface( _display, _surface, EGL_WIDTH, &_screenWidth );
+    eglQuerySurface( _display, _surface, EGL_HEIGHT, &_screenHeight );
 
     /* EGL_NATIVE_VISUAL_ID is an attribute of the EGLConfig that is
      * guaranteed to be accepted by ANativeWindow_setBuffersGeometry().
      * As soon as we picked a EGLConfig, we can safely reconfigure the
      * ANativeWindow buffers to match, using EGL_NATIVE_VISUAL_ID. */
     EGLint format;
-    eglGetConfigAttrib( display_, config_, EGL_NATIVE_VISUAL_ID, &format );
-    ANativeWindow_setBuffersGeometry( window_, 0, 0, format );
+    eglGetConfigAttrib( _display, _config, EGL_NATIVE_VISUAL_ID, &format );
+    ANativeWindow_setBuffersGeometry( _window, 0, 0, format );
 
     return true;
 }
 
-bool GLContext::InitEGLContext()
+bool GLContext::initEGLContext()
 {
     const EGLint context_attribs[] = { EGL_CONTEXT_CLIENT_VERSION, 2, //Request opengl ES2.0
             EGL_NONE };
-    context_ = eglCreateContext( display_, config_, NULL, context_attribs );
+    _context = eglCreateContext( _display, _config, NULL, context_attribs );
 
-    if( eglMakeCurrent( display_, surface_, surface_, context_ ) == EGL_FALSE )
+    if( eglMakeCurrent( _display, _surface, _surface, _context ) == EGL_FALSE )
     {
         FKLOG( "Unable to eglMakeCurrent" );
         return false;
     }
 
-    context_valid_ = true;
+    _contextValid = true;
     return true;
 }
 
-EGLint GLContext::Swap()
+void GLView::initGLES()
+{
+    if( _glesInitialized )
+        return;
+    
+    //Initialize OpenGL ES 3 if available
+    const char* versionStr = (const char*) glGetString( GL_VERSION );
+    if( strstr( versionStr, "OpenGL ES 3." ) && gl3stubInit() )
+    {
+        _es3Supported = true;
+        _glVersion = 3.0f;
+    }
+    else
+    {
+        _glVersion = 2.0f;
+    }
+    
+    _glesInitialized = true;
+}
+
+
+EGLint GLView::swap()
 {
     bool b = eglSwapBuffers( display_, surface_ );
     if( !b )
@@ -172,69 +151,69 @@ EGLint GLContext::Swap()
         if( err == EGL_BAD_SURFACE )
         {
             //Recreate surface
-            InitEGLSurface();
+            initEGLSurface();
             return EGL_SUCCESS; //Still consider glContext is valid
         }
         else if( err == EGL_CONTEXT_LOST || err == EGL_BAD_CONTEXT )
         {
             //Context has been lost!!
             context_valid_ = false;
-            Terminate();
-            InitEGLContext();
+            terminate();
+            initEGLContext();
         }
         return err;
     }
     return EGL_SUCCESS;
 }
 
-void GLContext::Terminate()
+void GLView::terminate()
 {
-    if( display_ != EGL_NO_DISPLAY )
+    if( _display != EGL_NO_DISPLAY )
     {
-        eglMakeCurrent( display_, EGL_NO_SURFACE, EGL_NO_SURFACE, EGL_NO_CONTEXT );
-        if( context_ != EGL_NO_CONTEXT )
+        eglMakeCurrent( _display, EGL_NO_SURFACE, EGL_NO_SURFACE, EGL_NO_CONTEXT );
+        if( _context != EGL_NO_CONTEXT )
         {
-            eglDestroyContext( display_, context_ );
+            eglDestroyContext( _display, _context );
         }
 
-        if( surface_ != EGL_NO_SURFACE )
+        if( _surface != EGL_NO_SURFACE )
         {
-            eglDestroySurface( display_, surface_ );
+            eglDestroySurface( _display, _surface );
         }
-        eglTerminate( display_ );
+        eglTerminate( _display );
     }
 
     display_ = EGL_NO_DISPLAY;
     context_ = EGL_NO_CONTEXT;
     surface_ = EGL_NO_SURFACE;
-    context_valid_ = false;
+    _contextValid = false;
 
 }
 
-EGLint GLContext::Resume( ANativeWindow* window )
+EGLint GLView::resume( ANativeWindow* window )
 {
-    if( egl_context_initialized_ == false )
+    if( _eglContextInitialized == false )
     {
-        Init( window );
+        init( window );
         return EGL_SUCCESS;
     }
 
-    int32_t original_widhth = screen_width_;
-    int32_t original_height = screen_height_;
+    int32_t original_widhth = _screenWidth;
+    int32_t original_height = _screenHeight;
 
     //Create surface
-    window_ = window;
-    surface_ = eglCreateWindowSurface( display_, config_, window_, NULL );
-    eglQuerySurface( display_, surface_, EGL_WIDTH, &screen_width_ );
-    eglQuerySurface( display_, surface_, EGL_HEIGHT, &screen_height_ );
+    _window = window;
+    _surface = eglCreateWindowSurface( _display, _config, _window, NULL );
+    eglQuerySurface( _display, _surface, EGL_WIDTH, &_screenWidth );
+    eglQuerySurface( _display, _surface, EGL_HEIGHT, &_screenHeight );
 
-    if( screen_width_ != original_widhth || screen_height_ != original_height )
+    if( _screenWidth != original_widhth || _screenHeight != original_height )
     {
         //Screen resized
         FKLOG( "Screen resized" );
     }
 
-    if( eglMakeCurrent( display_, surface_, surface_, context_ ) == EGL_TRUE )
+    if( eglMakeCurrent( _display, _surface, _surface, _context ) == EGL_TRUE )
         return EGL_SUCCESS;
 
     EGLint err = eglGetError();
@@ -244,38 +223,38 @@ EGLint GLContext::Resume( ANativeWindow* window )
     {
         //Recreate context
         FKLOG( "Re-creating egl context" );
-        InitEGLContext();
+        initEGLContext();
     }
     else
     {
         //Recreate surface
-        Terminate();
-        InitEGLSurface();
-        InitEGLContext();
+        terminate();
+        initEGLSurface();
+        initEGLContext();
     }
 
     return err;
 
 }
 
-void GLContext::Suspend()
+void GLView::suspend()
 {
-    if( surface_ != EGL_NO_SURFACE )
+    if( _surface != EGL_NO_SURFACE )
     {
-        eglDestroySurface( display_, surface_ );
-        surface_ = EGL_NO_SURFACE;
+        eglDestroySurface( _display, _surface );
+        _surface = EGL_NO_SURFACE;
     }
 }
 
-bool GLContext::Invalidate()
+bool GLView::invalidate()
 {
-    Terminate();
+    terminate();
 
-    egl_context_initialized_ = false;
+    _eglContextInitialized = false;
     return true;
 }
 
-bool GLContext::CheckExtension( const char* extension )
+bool GLView::checkExtension( const char* extension )
 {
     if( extension == NULL )
         return false;
