@@ -41,14 +41,8 @@ class EAGLView;
 class GLContext
 {
 private:
-    //EGL configurations
-    ANativeWindow* window_;
-    EGLDisplay display_;
-    EGLSurface surface_;
-    EGLContext context_;
-    EGLConfig config_;
-
-    EAGLView *glView;
+    //EGL View
+    void* glView;
     
     //Screen parameters
     int32_t _screenWidth;

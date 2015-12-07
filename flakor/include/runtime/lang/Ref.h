@@ -32,6 +32,14 @@ struct RefCount
     int _weakRefs;
 };
 
+class IRefCountedObject
+{
+public:
+	virtual uint32 addRef() const = 0;
+	virtual uint32 releaseRef() const = 0;
+	virtual uint32 getRefs() const = 0;
+}
+
 /// Base class for intrusively reference-counted objects. These are noncopyable and non-assignable.
 class Ref
 {

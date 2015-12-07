@@ -1,3 +1,8 @@
+/***************************************************************************
+ * Copyright (c) 2013-2015 Flakor.org All Rights Reserved.
+ * Author: Steve Hsu (steve@kunkua.com,saint@aliyun.com)
+ * last edited: 2015-12-4
+ ***************************************************************************/
 #ifndef RUNTIME_MATH_BYTESWAP_H
 #define RUNTIME_MATH_BYTESWAP_H
 

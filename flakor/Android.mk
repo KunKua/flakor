@@ -27,35 +27,9 @@ LOCAL_LDLIBS := -lGLESv1_CM \
                    -landroid
 
 
-LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH) \
-                           $(LOCAL_PATH)/. \
-                           $(LOCAL_PATH)/.. \
-                           $(LOCAL_PATH)/base/element \
-                           $(LOCAL_PATH)/platform \
-                           $(LOCAL_PATH)/base/lang \
-                           $(LOCAL_PATH)/base/interface \
-                           $(LOCAL_PATH)/include \
-					$(LOCAL_PATH)/core/opengl/ \
-					$(LOCAL_PATH)/core/opengl/vbo \
-					$(LOCAL_PATH)/core/opengl/shader \
-					$(LOCAL_PATH)/math \
-					$(LOCAL_PATH)/support/libjpeg \
-					$(LOCAL_PATH)/support/libpng
+LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/include
 
-LOCAL_C_INCLUDES := $(LOCAL_PATH) \
-                    $(LOCAL_PATH)/. \
-                    $(LOCAL_PATH)/.. \
-					$(LOCAL_PATH)/base/element \
-					$(LOCAL_PATH)/base/entity \
-					$(LOCAL_PATH)/base/lang \
-					$(LOCAL_PATH)/base/interface \
-					$(LOCAL_PATH)/include \
-					$(LOCAL_PATH)/core/opengl/ \
-					$(LOCAL_PATH)/core/opengl/vbo \
-					$(LOCAL_PATH)/core/opengl/shader \
-					$(LOCAL_PATH)/math \
-					$(LOCAL_PATH)/support/libjpeg \
-					$(LOCAL_PATH)/support/libpng
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/include
 
 LOCAL_STATIC_LIBRARIES := jpeg
 LOCAL_STATIC_LIBRARIES += png
@@ -71,7 +45,5 @@ LOCAL_ARM_NEON  := true
 endif
 
 include $(BUILD_STATIC_LIBRARY)
-
 include $(CLEAR_VARS)
-
 include $(LOCAL_PATH)/support/libjpeg/Android.mk  $(LOCAL_PATH)/support/libpng/Android.mk

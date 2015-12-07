@@ -1,3 +1,9 @@
+/***************************************************************************
+ * Copyright (c) 2013-2015 Flakor.org All Rights Reserved.
+ * Author: Steve Hsu (steve@kunkua.com,saint@aliyun.com)
+ * last edited: 2015-12-4
+ ***************************************************************************/
+
 #ifndef MATH_COMPRESSION_H
 #define MATH_COMPRESSION_H
 
