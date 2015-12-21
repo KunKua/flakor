@@ -1,3 +1,7 @@
+/**********************************************************
+ * Copyright (c) 2013-2015 Steve Hsu  All Rights Reserved.
+ *********************************************************/
+
 #ifndef RUNTIME_LANG_THREAD_H
 #define RUNTIME_LANG_THREAD_H
 

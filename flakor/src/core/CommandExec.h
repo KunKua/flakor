@@ -5,6 +5,7 @@ class CommandExec
 {
 public:
 	~CommandExec();
+	/** exec a command */
 	virtual void exec(const String& command) = 0;
 }
 

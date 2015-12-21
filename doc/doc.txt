@@ -1,0 +1,63 @@
+﻿BSP Tree
+Octree
+
+
+3D Pipeline – High-Level Overview
+
+1. Application/Scene
+
+
+
+
+Scene/Geometry database traversal
+Movement of objects, and aiming and movement of view camera
+Animated movement of object models
+Description of the contents of the 3D world
+Object Visibility Check including possible Occlusion Culling
+Select Level of Detail (LOD)
+2. Geometry
+
+
+
+
+Transforms (rotation, translation, scaling)
+
+Transform from Model Space to World Space (Direct3D)
+
+Transform from World Space to View Space
+
+View Projection
+
+Trivial Accept/Reject Culling
+
+Back-Face Culling (can also be done later in Screen Space)
+
+Lighting
+
+Perspective Divide – Transform to Clip Space
+
+Clipping
+
+Transform to Screen Space
+
+
+3. Triangle Setup
+
+
+
+
+Back-face Culling (or can be done in view space before lighting)
+Slope/Delta Calculations
+Scan-Line Conversion
+4. Rendering / Rasterization
+
+Shading
+Texturing
+Fog
+Alpha Translucency Tests
+Depth Buffering
+Antialiasing (optional)
+Display
+
+Light Mapping
+Bump mapping
