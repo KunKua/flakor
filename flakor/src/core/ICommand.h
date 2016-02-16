@@ -3,6 +3,11 @@
 
 class ICommand
 {
+	protected:
+		String rawCmd;
+		String protocol;
+		String action;
+		String params;
 	
 }
 
