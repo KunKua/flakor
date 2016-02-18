@@ -61,3 +61,7 @@ Display
 
 Light Mapping
 Bump mapping
+
+
+skeletal animation system
+Level of Detail (LOD) systems 

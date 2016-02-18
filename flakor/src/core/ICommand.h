@@ -3,12 +3,22 @@
 
 class ICommand
 {
-	protected:
-		String rawCmd;
-		String protocol;
-		String action;
-		String params;
-	
+protected:
+        String _rawCmd;
+        String _protocol;
+        String _action;
+        String _params;
+public:
+        virtual ~ICommand();
+        String getProtocol() const
+        {
+            return _protocol;
+        }
+
+        String getAction() const
+        {
+            return _action;
+        }
 }
 
 
