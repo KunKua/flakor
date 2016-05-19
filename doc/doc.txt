@@ -1,6 +1,7 @@
-﻿BSP Tree
+﻿BSP(Binary Space Partitioning)  Tree   Potentially Visible Sets (PVS)
 Octree
-
+Subsurface scattering(SSS)
+Bidirectional Reflectance Distribution Function (BDF)
 
 3D Pipeline – High-Level Overview
 
