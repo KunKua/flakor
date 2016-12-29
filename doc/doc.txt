@@ -1,7 +1,16 @@
-﻿BSP(Binary Space Partitioning)  Tree   Potentially Visible Sets (PVS)
+﻿https://knarkowicz.wordpress.com/2016/03/21/gdc-2016-presentations/
+http://www.mathforgameprogrammers.com/
+
+BSP(Binary Space Partitioning)  Tree   Potentially Visible Sets (PVS)
 Octree
 Subsurface scattering(SSS)
-Bidirectional Reflectance Distribution Function (BDF)
+Bidirectional Reflectance Distribution Function (BRDF)
+
+http://www.thetenthplanet.de/archives/255
+
+texture mapping
+bump mapping
+parallax mapping
 
 3D Pipeline – High-Level Overview
 
